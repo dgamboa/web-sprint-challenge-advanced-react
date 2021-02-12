@@ -136,9 +136,13 @@ test("displays plants in cart", () => {
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. Add your answers to the questions within `interview_answers.md` file. These will not be counted as a part of your sprint score but will be helpful for preparing you for your endorsement interview, and enhancing overall understanding.
 
 1. What are the main differences between a stateful and a functional class?
+A stateful class has a slice of application state while a purely functional class displays components. The components displayed by functional classes sometimes carry data that is preserved in state elsewhere in the application (i.e. in a stateful class or stateful functional component). The primary difference between stateful functional components and stateful classes is the way the handle the React lifecycle. Stateful functional components use hooks while stateful classes use a constructor and lifecycle methods like `componentDidMount` or `componentDidUpdate`. Classes also require an explicit call to the render method and cannot use hooks. A rule of thumb is to use class components for "heavy" components.
 
 2. When does a componentWillMount function be called? What about a componentWillUpdate?
+`componentWillMount` is called just before mounting while `componentWillUpdate` is called just before rendering when new props or state are received by the component. Both of these have been deprecated and the React docs encourage developers to use `componentDidMount` and `componentDidUpdate` instead.
 
 3. Define stateful logic.
+Stateful logic refers to logical operations built into React components. This can be setting or updating state, handling changes or events via helper functions and logical filters to determine the component's behavior.
 
 4. What are the three step of creating a successful test? What is done in each phase?
+The three steps are Arrange, Act, Assert. First, we arrange the test by defining the elements we're testing (e.g. input fields) or the ones we need to run the test (e.g. button). Second, we act by performing the operation whose result we want to test (e.g. clicking the button). Finally, we assert that our expected result occurred and is now displayed by our application (e.g. the button was submitted and the resulting success message is displayed). This last step results in a passing test if the application is in fact performing in accordance with our expected behavior. A fourth step that is often useful is to deliberately assert the opposite of our test to make sure it fails. That way we can ensure we're not getting a false positive in a passing test.
